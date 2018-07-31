@@ -66,6 +66,6 @@ int main ()
     printf("%d %d %d\n",jiacwin+jiajwin+jiabwin,jiaping,jialose);
     printf("%d %d %d\n",yicwin+yijwin+yibwin,yiping,yilose);
     printf("%c ",jiabwin>=jiacwin?(jiabwin>=jiajwin?'B':'J'):(jiacwin>=jiajwin?'C':'J'));
-    printf("%c",yibwin>=yicwin?(yibwin>=yijwin?'B':'J'):(yicwin>=yijwin?'C':'J'));
+    printf("%c",yibwin>=yicwin?(yibwin>=yijwin?'B':'J'):(yicwin>=yijwin?'C':'B'));
     return 0;
 }
