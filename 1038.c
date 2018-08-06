@@ -1,0 +1,30 @@
+#include <stdio.h>
+int main ()
+{
+    int n,m,i,j;
+    int a[100000],b[100000],c[100000]={0};
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    scanf("%d",&m);
+    for(i=0;i<m;i++)
+        scanf("%d",&b[i]);
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            if(b[i]==a[j])
+            {
+                c[i]++;
+            }
+        }
+    }
+    for(i=0;i<m;i++)
+    {
+        printf("%d ",c[i]);
+    }
+     printf("\b");
+    return 0;
+}
