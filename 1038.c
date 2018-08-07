@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 int main ()
 {
     int n,m,i,j;
@@ -28,3 +28,39 @@ int main ()
      printf("\b");
     return 0;
 }
+*/
+#include <stdio.h>
+int main ()
+{
+    int i,m,n,a[101]={0},b,c;
+    scanf("%d",&m);
+    for(i=0;i<m;i++)
+    {
+        scanf("%d",&b);
+        a[b]++;
+    }
+    scanf("%d",&n);
+    for(i=0;i<n-1;i++)
+    {
+        scanf("%d",&c);
+        printf("%d ",a[c]);
+    }
+    printf("%d",a[n]);
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
