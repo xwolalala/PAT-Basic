@@ -1,40 +1,61 @@
-#include <stdio.h>
-int main ()
+#include<stdio.h>
+struct Y
 {
-    int n,d,i,flag,flagp=0;
-    float a[1000]/*每种库存量*/,b[1000]/*每种总售价*/,max=0,total=0;
-    scanf("%d %d",&n,&d);
+    float a,b,c;
+}d[1000],e;
+int main()
+{
+    int i,j,n,m;
+    float t=0;
+    scanf("%d%d",&n,&m);
     for(i=0;i<n;i++)
-        scanf("%f",&a[i]);
-    for(i=0;i<n;i++)
-        scanf("%f",&b[i]);
-    while(d>0)
     {
-        for(i=0;i<n;i++)
-        {
-            if((max<(b[i]/a[i]))||((max=(b[i]/a[i]))&&(a[i]>a[flag])))
-                {
-                    max=b[i]/a[i];
-                    flag=i;
-                }
-        }
-        printf("%d     %f\n",flag,max);
-        if(a[flag]>=d)
-        {
-            total=total+max*d;
-            break;
-        }
-        if(a[flag]<d)
-        {
-            total=total+b[i];
-            d=d-a[flag];
-            a[flag]=0;
-            printf("%d\n",total);
-        }
-       d=d-a[flag];
-       max=0;
+        scanf("%f",&d[i].a);
     }
-    printf("%f",total);
+    for(i=0;i<n;i++)
+    {
+        scanf("%f",&d[i].b);
+    }
+    for(i=0;i<n;i++)
+    {
+        d[i].c=d[i].b/d[i].a;
+    }
+    for(i=1;i<n;i++)
+    {
+        for(j=0;j<n-1;j++)
+        {
+            if(d[j].c<d[j+1].c)
+            {
+                e=d[j];
+                d[j]=d[j+1];
+                d[j+1]=e;
+            }
+        }
+    }
+    float p=0;
+    int r,k;
+    if(m<=d[0].a)
+    {
+        t=d[0].c*m;
+    }
+    else
+    {
+    for(i=0;i<n;i++)
+        {
+            p=p+d[i].a;
+            if(p>=m)
+            {
+                r=i;
+                k=(int)(p-m);
+                break;
+            }
+        }
+        for(i=0;i<=r;i++)
+        {
+            t=t+d[i].b;
+        }
+        t=t-d[r].c*k;
+    }
+    printf("%.2f\n",t);
     return 0;
 }
-
